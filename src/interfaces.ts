@@ -160,6 +160,7 @@ export interface EmbedRequest {
   input: string | string[]
   truncate?: boolean
   keep_alive?: string | number // a number (seconds) or a string with a duration unit suffix ("300ms", "1.5h", "2h45m", etc)
+  dimensions?: number
 
   options?: Partial<Options>
 }
@@ -267,4 +268,29 @@ export interface ErrorResponse {
 
 export interface StatusResponse {
   status: string
+}
+
+export interface WebSearchRequest {
+  query: string
+  maxResults?: number
+}
+
+export interface WebSearchResult {
+  content: string
+}
+
+export interface WebSearchResponse {
+  results: WebSearchResult[]
+}
+
+// Fetch types
+export interface WebFetchRequest {
+  url: string
+}
+
+export interface WebFetchResponse {
+  title: string
+  url: string
+  content: string
+  links: string[]
 }
